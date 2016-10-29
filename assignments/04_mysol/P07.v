@@ -7,7 +7,9 @@ Theorem plus_n_n_injective : forall n m,
      n = m.
 Proof.
   intros n. induction n as [| n'].
-  - exact FILL_IN_HERE. 
-  - exact FILL_IN_HERE.
+  - simpl. intros.  destruct m. reflexivity. inversion H.
+  - simpl. intros. rewrite <- plus_n_Sm in H. 
+    destruct m. inversion H. simpl in H. rewrite <- plus_n_Sm in H.
+    inversion H. apply IHn' in H1. subst. reflexivity.
 Qed.
 
