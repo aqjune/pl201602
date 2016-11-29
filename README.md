@@ -25,6 +25,8 @@
 - 2016/11/07: The class on 2016/11/07 is cancelled.
 - 2016/11/22: Problems/Solution of midterm is uploaded
 - 2016/11/24: Final term will be in Dec.10 6:30 ~ 9:30 pm. We have a makeup class at Nov.25 5:00 pm
+- 2016/11/29: You don't need to solve P03.v in Assn 7 ; see https://github.com/snu-sf-class/pl201602/issues/52 
+- 2016/11/29: Assignment 8~12 is uploaded.
 
 ## Assignments
 
@@ -37,6 +39,7 @@
 | Oct.31 23:59  | Nov.07 23:59  | Assignment 5                   	 	 	 	 	 	 	 	 	 	 	 	 	 	| 80 	    |
 | Nov.07 23:59  | No delay      | Assignment 6                                                                          | 130       |
 | Nov.30 23:59  | No delay      | Assignment 7                                                                          | 170       |
+| Dec.07 23:59  | No delay      | Assignment 8~12                                                                       | 200(total)|
 
 ## Must Read
 
