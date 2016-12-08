@@ -27,6 +27,8 @@
 - 2016/11/24: Final term will be in Dec.10 6:30 ~ 9:30 pm. We have a makeup class at Nov.25 5:00 pm
 - 2016/11/29: You don't need to solve P03.v in Assn 7 ; see https://github.com/snu-sf-class/pl201602/issues/52 
 - 2016/11/29: Assignment 8~12 is uploaded.
+- 2016/12/05: Due date of Assignment 8~12 is delayed to Fri, 11:59 AM.
+- 2016/12/07: Midterm score announcement & Change in grading policy ; see https://github.com/snu-sf-class/pl201602/issues/61
 
 ## Assignments
 
@@ -39,7 +41,7 @@
 | Oct.31 23:59  | Nov.07 23:59  | Assignment 5                   	 	 	 	 	 	 	 	 	 	 	 	 	 	| 80 	    |
 | Nov.07 23:59  | No delay      | Assignment 6                                                                          | 130       |
 | Nov.30 23:59  | No delay      | Assignment 7                                                                          | 170       |
-| Dec.07 23:59  | No delay      | Assignment 8~12                                                                       | 200(total)|
+| ~~Dec.07 23:59~~ Dec.09 11:59 | No delay      | Assignment 8~12                                                                       | 200(total)|
 
 ## Must Read
 
@@ -47,21 +49,16 @@
 
 ### Grading
 
-- Exams: 75% (mid-term 35% and final 40%)
+- Exams: 75% (mid-term ~~35%~~ 30% and final 40%)
     + You will solve Coq problems at the lab during the exam.
-- Assignments: 20%
+- Assignments: ~~20%~~ 25%
     + Coq problems in the [software foundations material](http://www.cis.upenn.edu/~bcpierce/sf/current/index.html). Read carefully the next subsections.
-    + In the exams, there will be questions that are related to assignments. If you get those questions wrong, your assignment score will be reducted.
+    + In the exams, there will be questions that have appeared in assignments. If you get those questions wrong and if you solved them in assignment , your assignment score will be reducted. (12/07 updated)
         * Suppose Your nominal assignment score (for beginning to midterm) is `S`.
-        * Suppose the midterm has three assignment-related questions: A, B, C. They will be annotated with a weight (for e.g. `w(A)`).
-        * Suppose `f(A)` is a boolean variable that represents whether you got the question A wrong or not. `f(A)=1` means you got wrong.
-        * Your adjusted assignment score will be `S * (1 - f(A) * w(A) - f(B) * w(B) - f(C) * w(C))`.
+        * Suppose the midterm has N assignment-related questions, and they are unsolved.
+        * Your adjusted assignment score will be `S * (1 - f(N))`.
+        * f(1) = 0.1 ; f(2) = 0.2 ; f(3) = 0.5 ; f(4) = 0.7 ; f(5) = 0.9
 
- Suppose the midterm has three assignment-related questions: A, B, C. It will be annotated with a weight (`w(A)`, `w(B)`, `w(C)`).
-
-Your assignment score (for beginning to midterm) is `S`.
-
-will be (nominal score) * (100% - )
 - Attendance: 5%
     + -1% per absence.  *IMPORTANT: 6 absences make an F*.
     + Maximum 2 absences are allowed.
