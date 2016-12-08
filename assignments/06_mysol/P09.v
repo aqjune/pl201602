@@ -11,20 +11,35 @@ Require Export P08.
 
 (** First prove an easy useful lemma. *)
 
+
 Lemma in_split : forall (X:Type) (x:X) (l:list X),
   In x l ->
   exists l1 l2, l = l1 ++ x :: l2.
-Proof. exact FILL_IN_HERE. Qed.
+Proof.
+intros.
+induction l.
+- inversion H.
+- inversion H.
+  + rewrite H0 in *.
+    exists [], l.
+    reflexivity.
+  + apply IHl in H0.
+    inversion H0.
+    inversion H1.
+    exists (a::x0).
+    exists x1.
+    simpl.
+    rewrite H2.
+    reflexivity.
+Qed.
 
 (** Now define a property [repeats] such that [repeats X l] asserts
     that [l] contains at least one repeated element (of type [X]).  *)
 
-(*
 Inductive repeats {X:Type} : list X -> Prop :=
 | rp_base: forall x l, In x l -> repeats (x::l)
 | rp_next: forall x l, repeats l -> repeats (x::l)
 .
-*)
 
 (** Now, here's a way to formalize the pigeonhole principle.  Suppose
     list [l2] represents a list of pigeonhole labels, and list [l1]
@@ -46,7 +61,16 @@ Theorem pigeonhole_principle: forall (X:Type) (l1  l2:list X),
    repeats l1.
 Proof.
    intros X l1. induction l1 as [|x l1' IHl1'].
-   { exact FILL_IN_HERE. }
-   { exact FILL_IN_HERE. }
+   { simpl. intros. inversion H1. }
+   {
+     intros l2.
+     intros H_excluded.
+     unfold excluded_middle in *.
+     intros H1 H2.
+     assert (H' := H_excluded (In x l1')).
+     destruct H'.
+     - apply rp_base. assumption.
+     - 
+   }
 Qed.
 

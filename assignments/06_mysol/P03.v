@@ -1,3 +1,5 @@
+
+
 Require Export P02.
 
 
@@ -17,5 +19,15 @@ Theorem not_exists_dist :
   excluded_middle ->
   forall (X:Type) (P : X -> Prop),
     ~ (exists x, ~ P x) -> (forall x, P x).
-Proof. exact FILL_IN_HERE. Qed.
+Proof. 
+intros.
+unfold excluded_middle in H.
+assert (H' := H (P x)).
+inversion H'.
+assumption.
+exfalso.
+apply H0.
+exists x.
+assumption.
+Qed.
 

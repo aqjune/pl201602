@@ -39,45 +39,62 @@ Require Export P07.
       Hint: choose your induction carefully! *)
 
 Inductive subseq {X: Type}: list X -> list X -> Prop :=
-(* FILL_IN_HERE *)
+| subseq_nil : subseq [] []
+| subseq_addboth : forall (l l1 : list X) (h : X), subseq l1 l -> subseq (h::l1) (h::l)
+| subseq_addone : forall (l l1 : list X) (h : X), subseq l1 l -> subseq l1 (h::l)
 .
 
 Example subseq_ex1: subseq [1;2;3] [1;2;3].
-Proof. exact FILL_IN_HERE. (* repeat constructor. *) Qed.
+Proof. repeat constructor. Qed.
 
 Example subseq_ex2: subseq [1;2;3] [1;1;1;2;2;3].
-Proof. exact FILL_IN_HERE. (* repeat constructor. *) Qed.
+Proof. repeat constructor. Qed.
 
 Example subseq_ex3: subseq [1;2;3] [1;2;7;3].
-Proof. exact FILL_IN_HERE. (* repeat constructor. *) Qed.
+Proof. repeat constructor. Qed.
 
 Example subseq_ex4: subseq [1;2;3] [5;6;1;9;9;2;7;3;8].
-Proof. exact FILL_IN_HERE. (* repeat constructor. *) Qed.
+Proof. repeat constructor. Qed.
 
 Example subseq_ex5: ~ subseq [1;2;3] [1;2].
 Proof.
-  exact FILL_IN_HERE.
-  (* intro H; repeat match goal with [H: subseq _ _ |- _] => inversion_clear H end. *)
+  intro H; repeat match goal with [H: subseq _ _ |- _] => inversion_clear H end.
 Qed.
 
 Example subseq_ex6: ~ subseq [1;2;3] [1;3].
 Proof.
-  exact FILL_IN_HERE.
-  (* intro H; repeat match goal with [H: subseq _ _ |- _] => inversion_clear H end. *)
+  intro H; repeat match goal with [H: subseq _ _ |- _] => inversion_clear H end.
 Qed.
 
 Example subseq_ex7: ~ subseq [1;2;3] [5;6;2;1;7;3;8].
 Proof.
-  exact FILL_IN_HERE.
-  (* intro H; repeat match goal with [H: subseq _ _ |- _] => inversion_clear H end. *)
+  intro H; repeat match goal with [H: subseq _ _ |- _] => inversion_clear H end.
 Qed.
 
 Lemma subseq_refl: forall X (l: list X), 
   subseq l l.
-Proof. exact FILL_IN_HERE. Qed.
+Proof.
+induction l.
+- constructor.
+- constructor. assumption.
+Qed.
 
 Lemma subseq_app: forall X (l1 l2 l3: list X)
     (SUB: subseq l1 l2),
   subseq l1 (l2++l3).
-Proof. exact FILL_IN_HERE. Qed.
+Proof.
+intros.
+induction SUB.
+- intros.
+  simpl.
+  induction l3.
+  + constructor.
+  + constructor. assumption.
+- simpl.
+  apply subseq_addboth.
+  assumption.
+- simpl.
+  apply subseq_addone.
+  assumption.    
+Qed.
 
