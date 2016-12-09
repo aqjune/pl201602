@@ -8,6 +8,7 @@ induction n2.
 - rewrite <- plus_n_O. constructor.
 - rewrite <- plus_n_Sm. constructor. assumption.
 Qed.
+
 Theorem plus_comm: forall n1 n2,
     n1 + n2 = n2 + n1.
 Proof.
@@ -32,4 +33,9 @@ induction m.
     * rewrite plus_n_Sm.
       rewrite plus_comm.
       apply le_trivial.
+  + apply IHm in H1.
+    inversion H1.
+    split.
+    * constructor. assumption.
+    * constructor. assumption.
 Qed.
